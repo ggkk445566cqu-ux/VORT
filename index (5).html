@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قوانين VX</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    color:#fff;
+    background:url("https://f.top4top.io/p_36773kzfo0.png") center/cover fixed;
+}
+header{
+    background:#7a0000;
+    text-align:center;
+    padding:25px;
+}
+.title{
+    font-size:42px;
+    font-weight:700;
+}
+.marquee{
+    background:#8b0000;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:10px 0;
+}
+.marquee span{
+    display:inline-block;
+    padding-left:100%;
+    animation:scroll 15s linear infinite;
+}
+@keyframes scroll{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-100%)}
+}
+
+.container{
+    max-width:1100px;
+    margin:20px auto;
+    background:rgba(30,0,0,.9);
+    padding:25px;
+    border-radius:15px;
+}
+
+.menu{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+    margin-bottom:20px;
+}
+.menu button{
+    padding:15px 25px;
+    font-size:20px;
+    background:#b30000;
+    border:none;
+    border-radius:12px;
+    color:#fff;
+    cursor:pointer;
+}
+.menu button:hover{background:#800000}
+
+.section{display:none}
+.section.active{display:block}
+
+h2{text-align:center;margin-bottom:15px;}
+
+.options{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:20px;
+    margin-top:20px;
+}
+.options div{
+    display:flex; 
+    flex-direction:column;
+    margin-bottom:20px; 
+}
+.options button{
+    padding:20px;
+    font-size:20px;
+    background:linear-gradient(145deg,#b30000,#7a0000);
+    border:none;
+    border-radius:14px;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+    text-align:center;
+}
+.options button:hover{
+    transform:translateY(-4px);
+    background:#800000;
+}
+
+.desc{
+    display:none;
+    margin-top:10px;
+    padding:20px;
+    border-radius:12px;
+    font-size:18px;
+    line-height:2;
+    white-space:pre-line;
+    transition: all 0.4s ease;
+}
+
+.desc.rp{color:#00ff00; background:rgba(0,128,0,0.5);} /* فقط خيارات رول بلاي */
+.desc.general{color:#fff; background:rgba(0,0,0,0.5);} /* القوانين العامة */
+
+.back{
+    margin-top:20px;
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    background:#ff2a2a;
+    border:none;
+    border-radius:10px;
+    color:#fff;
+    cursor:pointer;
+}
+
+.social{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:20px;
+}
+.social a{
+    width:60px;
+    height:60px;
+    background:#b30000;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.social img{width:38px}
+
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+    margin-top:20px;
+}
+.gallery img, .gallery video{
+    width:180px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+.gallery img:hover, .gallery video:hover{transform:scale(1.05)}
+
+#lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    align-items:center;
+    justify-content:center;
+}
+#lightbox img{max-width:90%;border-radius:10px}
+
+.about-text{
+    margin-bottom:25px;
+    padding:20px;
+    background:rgba(0,128,0,0.5);
+    border-radius:12px;
+    font-size:18px;
+    line-height:2;
+    white-space:pre-line;
+}
+
+@media(max-width:700px){
+    .menu,.options{flex-direction:column}
+    .options button{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="title">قوانين VX</div>
+</header>
+
+<div class="marquee">
+<span>مرحبًا بكم في قوانين VX — الالتزام بالقوانين أساس المتعة والرول بلاي الواقعي</span>
+</div>
+
+<div class="container">
+
+<div class="social">
+<a href="https://discord.gg/vort" target="_blank"><img src="https://a.top4top.io/p_3677axutf0.png"></a>
+<a href="https://www.tiktok.com/@qfcvo" target="_blank"><img src="https://e.top4top.io/p_3677bl0a30.jpg"></a>
+<a href="https://youtube.com/@wf_71" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"></a>
+</div>
+
+<!-- نص من نحن صغير فوق الخيارات -->
+<div class="about-text">
+مرحبًا بكم في سيرفر فورتكس بمدينة لوس سانتوس. هنا ستجدون تجربة رول بلاي ممتعة وواقعية تحافظ على التمثيل الجدي والتفاعل بين اللاعبين.
+</div>
+
+<div class="menu" id="menu">
+<button onclick="openSec('rp')">قوانين رول بلاي</button>
+<button onclick="openSec('general')">القوانين العامة</button>
+<button onclick="openSec('gallery')">آراء السيرفر</button>
+</div>
+
+<!-- رول بلاي -->
+<div class="section" id="rp">
+<h2>قوانين رول بلاي</h2>
+
+<div class="options">
+  <div>
+    <button onclick="toggleText('text1')">باور قيمنج</button>
+    <div class="desc rp" id="text1">
+- تنفيذ أفعال غير منطقية أو مستحيلة داخل الرول بلاي.
+- فرض أفعال على لاعبين آخرين دون إعطائهم فرصة للتفاعل.
+    </div>
+  </div>
+  <div>
+    <button onclick="toggleText('text2')">ميتا قيمنج</button>
+    <div class="desc rp" id="text2">
+- استخدام أي معلومة حصلت عليها خارج الرول بلاي داخل الرول بلاي.
+- يعطي أفضلية غير عادلة ويخرب مجرى السيناريو على باقي اللاعبين.
+    </div>
+  </div>
+  <div>
+    <button onclick="toggleText('text3')">القتل العشوائي</button>
+    <div class="desc rp" id="text3">
+- قتل أي لاعب بدون سبب منطقي أو سيناريو داخل الرول بلاي.
+- يخل بترتيب الأحداث ويكسر التفاعل الطبيعي بين الشخصيات.
+    </div>
+  </div>
+  <div>
+    <button onclick="toggleText('text4')">استخدام السيارة كسلاح</button>
+    <div class="desc rp" id="text4">
+- استخدام المركبة لإلحاق الضرر أو قتل لاعبين آخرين بدون سبب رول بلاي منطقي.
+- يكسر واقعية اللعبة ويضر تجربة اللاعبين الآخرين.
+    </div>
+  </div>
+  <div>
+    <button onclick="toggleText('text5')">فشل الرول بلاي</button>
+    <div class="desc rp" id="text5">
+- عدم الالتزام بالتمثيل الجدي أو تخريب السيناريو داخل اللعبة.
+- التصرف بشكل غير منطقي أو تجاهل أحداث مهمة يضر تجربة اللاعبين الآخرين.
+    </div>
+  </div>
+  <div>
+    <button onclick="toggleText('text6')">الخوف على الحياة</button>
+    <div class="desc rp" id="text6">
+- عدم إظهار الخوف على حياة الشخصية في المواقف الخطرة أو التهديدات.
+- يقلل من واقعية التمثيل ويضر تجربة اللعب الجماعية.
+    </div>
+  </div>
+  <div>
+    <button onclick="toggleText('text7')">الخروج أثناء القتال</button>
+    <div class="desc rp" id="text7">
+- الخروج من اللعبة أثناء مواجهة أو سيناريو خطر.
+- يمنع استكمال الأحداث ويكسر تجربة اللاعبين الآخرين.
+    </div>
+  </div>
+  <div>
+    <button onclick="toggleText('text8')">الانتقام بعد الموت</button>
+    <div class="desc rp" id="text8">
+- قتل نفس اللاعب الذي قتلك بعد موتك مباشرة بدون سبب رول بلاي منطقي.
+- يكسر تسلسل الأحداث ويضر تجربة اللاعبين الآخرين.
+    </div>
+  </div>
+</div>
+
+<button class="back" onclick="back()">رجوع</button>
+</div>
+
+<!-- قوانين عامة -->
+<div class="section" id="general">
+<h2>القوانين العامة</h2>
+<div class="desc general" style="display:block;">
+الحد الأدنى للعمر 16 سنة لضمان فهم قوانين الرول بلاي والتفاعل الواقعي مع الأحداث.  
+الالتزام بالشخصية الخاصة بك، وعدم الخلط بين تصرفاتك الشخصية وتصرفات الشخصية داخل اللعبة.  
+التمثيل الجدي والواقعي لجميع المواقف داخل الرول بلاي، مع تجنب التصرفات العشوائية أو التخريبية.  
+احترام جميع اللاعبين وعدم مهاجمتهم خارج إطار الرول بلاي، للحفاظ على تجربة ممتعة للجميع.  
+منع استخدام أي معلومات حصلت عليها من خارج اللعبة داخل الرول بلاي (الميتا قيمنج).  
+عدم فرض أي أفعال على لاعبين آخرين بدون موافقتهم (الباور قيمنج).  
+إظهار الخوف على حياة الشخصية عند التهديد، والتعامل مع الموت والخطر بشكل منطقي.  
+عدم الخروج المفاجئ أثناء الاشتباكات أو السيناريوهات المهمة لضمان استمرار الأحداث.  
+استخدام المركبات والأسلحة بطريقة منطقية، وعدم قتل اللاعبين بدون سبب رول بلاي مقنع.  
+الالتزام بجميع قوانين السيرفر الإضافية التي يضعها فريق الإدارة.  
+المساهمة في استمرار السيناريوات وحماية تجربة اللعب الجماعية لجميع اللاعبين.
+</div>
+<button class="back" onclick="back()">رجوع</button>
+</div>
+
+<!-- معرض الصور والفيديو -->
+<div class="section" id="gallery">
+<h2>آراء السيرفر</h2>
+<div class="gallery">
+
+  <!-- الفيديو الكبير -->
+  <video controls width="640" style="border-radius:12px; margin-bottom:15px;">
+      <source src="https://f.top4top.io/m_3682t99lx1.mp4" type="video/mp4">
+      متصفحك لا يدعم عرض الفيديو.
+  </video>
+
+  <!-- الصور -->
+  <img src="https://c.top4top.io/p_3677q2i2d0.jpg" onclick="openImg(this)">
+  <img src="https://e.top4top.io/p_3677u0ew62.jpg" onclick="openImg(this)">
+  <img src="https://f.top4top.io/p_3677rv3hb3.jpg" onclick="openImg(this)">
+  <img src="https://g.top4top.io/p_3677pwpsb4.jpg" onclick="openImg(this)">
+  <img src="https://h.top4top.io/p_3677ke2fe5.jpg" onclick="openImg(this)">
+
+</div>
+<button class="back" onclick="back()">رجوع</button>
+</div>
+
+</div>
+
+<div id="lightbox" onclick="this.style.display='none'">
+<img id="lightImg">
+</div>
+
+<script>
+function openSec(id){
+menu.style.display="none";
+document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+function back(){
+menu.style.display="flex";
+document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+}
+function toggleText(id){
+  document.querySelectorAll('.desc.rp').forEach(d => {
+    if(d.id===id) d.style.display='block';
+    else d.style.display='none';
+  });
+}
+function openImg(i){lightImg.src=i.src; lightbox.style.display="flex";}
+</script>
+
+</body>
+</html>
